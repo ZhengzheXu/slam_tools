@@ -3,6 +3,20 @@
 
 """
 Fastly merge gyro and accel topics into one rosbag file with linear interpolation.
+
+Modified from: openloris-scene-tools/dataprocess/merge_imu_topics.py
+
+Usage:
+    python fast_merge_imu_topics.py <bag_file_1> <bag_file_2> ...
+
+Output:
+    vins1.bag, vins2.bag, ...
+
+Note:
+    1. The input bag file should contain two topics: /d400/accel/sample and /d400/gyro/sample.
+    2. The output bag file will contain only one topic: /d400/imu0.
+    3. The output bag file will be named as vins1.bag, vins2.bag, ... and so on.
+    4. The output bag file will be saved in the same directory as the input bag file.
 """
 
 import rospy

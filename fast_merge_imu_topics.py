@@ -29,7 +29,7 @@ from sensor_msgs.msg import Imu
 
 def merge_gyro_accel(file, file_index):
     """ Merge gyro and accel data from a ROS bag file. """
-    outfile = "vins{}.bag".format(file_index)
+    outfile = file.replace(".bag", "_vins{}.bag".format(file_index))
     outbag = rosbag.Bag(outfile, 'w')
 
     # Initialize lists to store data

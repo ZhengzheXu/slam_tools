@@ -10,7 +10,7 @@ This repository, `slam_tools`, is a collection of utility scripts and tools desi
 ### 1. merge_imu_topics.py
 This script merges data from the `/d400/accel/sample` and `/d400/gyro/sample` topics of a ROS bag file into a more commonly used IMU data format `/d400/imu0`. This format is particularly useful for running visual SLAM algorithms like VINS-Mono.
  
-#### Usage
+#### 1.1. Usage
 To run the script, use the following command: 
 ```bash
 python merge_imu_topics.py <bag_file_1> <bag_file_2> ...
@@ -22,12 +22,12 @@ Replace `<bag_file_1>`, `<bag_file_2>`, etc. with the names of the bag files you
  
 An improved version of the original `merge_imu_topics.py` script. This script is significantly faster, thanks to the utilization of numpy and scipy libraries for efficient data handling. The usage is similar to the original script.
  
-#### Features
+#### 2.1. Features
 - Enhanced performance for large data sets.
 - Maintains the original timestamps from accelerometer and gyroscope data, leading to increased data frequency in the merged output.
 - Compatible with standard visual SLAM algorithms like VINS-Mono.
  
-#### Usage
+#### 2.2. Usage
 Similar to the original script, run the following command: 
 ```bash
 python fast_merge_imu_topics.py <bag_file_1> <bag_file_2> ...
@@ -38,7 +38,7 @@ Ensure that numpy and scipy are installed in your environment. If not, install t
 pip install numpy scipy
 ```
  
-#### Note
+#### 2.3. Note
 - The script may produce a "imu message in disorder!" warning when used with VINS. 
 This warning indicates non-monotonically increasing timestamps in the IMU data. 
 However, this does not affect the functionality of the algorithms. 
@@ -47,12 +47,7 @@ This issue is also present in the original script and is slated for future resol
 ### 3. filter_topics.py
 This script is designed to filter out specified topics from ROS bag files. It's particularly useful in scenarios where you need to process or analyze bag files without certain topics. 
 
-### Features
-- Ability to filter out specific topics from ROS bag files.
-- Reads the list of topics to be filtered from a YAML file, allowing for easy customization.
-- Suitable for preprocessing bag files for various SLAM and robotics applications.
-
-### Usage
+#### 3.1. Usage
 To use the script, you need to have a YAML file that contains the list of topics to be filtered. The format of the YAML file should be as follows:
 
 ```yaml

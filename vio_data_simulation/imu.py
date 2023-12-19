@@ -108,10 +108,11 @@ class IMU:
 
         # translation
         # twb:  body frame in world frame
+        
         position = np.array([ellipse_x * math.cos( K * t) + 5, ellipse_y * math.sin( K * t) + 5,  z * math.sin( K1 * K * t ) + 5])
 
         dp = np.zeros((3, 1))       # position导数　in world frame
-        ddp = np.zeros((3, 1))     # position二阶导数
+        ddp = np.zeros((3, 1))      # position二阶导数
 
         # Rotation
         k_roll = 0.1

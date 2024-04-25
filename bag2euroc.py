@@ -22,7 +22,7 @@ def extract_data(bag_file):
     # Read ROS Bag file
     with rosbag.Bag(bag_file, 'r') as bag:
         for topic, msg, t in bag.read_messages(topics=['/odometry']):
-            timestamp = t.to_nsec() // 1000
+            timestamp = t.to_nsec()
             data.append({
                 'timestamp': timestamp,
                 'x': msg.pose.pose.position.x,

@@ -13,7 +13,7 @@ from geometry_msgs.msg import PoseStamped
 from nav_msgs.msg import Odometry
 
 def select_bag_file():
-    filepath = filedialog.askopenfilename(title="Chose ROS Bag file", filetypes=(("ROS Bag files", "*.bag"), ("All files", "*.*")))
+    filepath = filedialog.askopenfilename(title="Select ROS Bag file", filetypes=(("ROS Bag files", "*.bag"), ("All files", "*.*")))
     if filepath:
         extract_data(filepath)
 
@@ -67,7 +67,7 @@ def extract_data(bag_file):
 root = tk.Tk()
 root.title("ROS Bag to EuRoC CSV Converter")
 
-tk.Button(root, text="Choose ROS Bag file", command=select_bag_file).pack(pady=20)
+tk.Button(root, text="Select ROS Bag file", command=select_bag_file).pack(pady=20)
 label = tk.Label(root, text="")
 label.pack(pady=20)
 
